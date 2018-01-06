@@ -1,8 +1,8 @@
 {%set name = "python-memcached" %}
-{%set version = "1.58" %}
+{%set version = "1.59" %}
 {%set compress_type = "tar.gz" %}
 {%set hash_type = "sha256" %}
-{%set hash_val = "2775829cb54b9e4c5b3bbd8028680f0c0ab695db154b9c46f0f074ff97540eb6" %}
+{%set hash_val = "a2e28637be13ee0bf1a8b6843e7490f9456fd3f2a4cb60471733c7b5d5557e4f" %}
 {%set build_num = "0" %}
 
 package:
