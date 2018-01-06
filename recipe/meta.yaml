@@ -1,9 +1,9 @@
-{%set name = "python-memcached" %}
-{%set version = "1.59" %}
-{%set compress_type = "tar.gz" %}
-{%set hash_type = "sha256" %}
-{%set hash_val = "a2e28637be13ee0bf1a8b6843e7490f9456fd3f2a4cb60471733c7b5d5557e4f" %}
-{%set build_num = "0" %}
+{% set name = "python-memcached" %}
+{% set version = "1.59" %}
+{% set compress_type = "tar.gz" %}
+{% set hash_type = "sha256" %}
+{% set hash_val = "a2e28637be13ee0bf1a8b6843e7490f9456fd3f2a4cb60471733c7b5d5557e4f" %}
+{% set build_num = "0" %}
 
 package:
   name: {{ name|lower }}
@@ -17,6 +17,7 @@ source:
 build:
   number: {{ build_num }}
   script: python setup.py install --single-version-externally-managed --record=record.txt
+  noarch: python
 
 requirements:
   build:
