@@ -1,22 +1,23 @@
-{%set name = "python-memcached" %}
-{%set version = "1.58" %}
-{%set compress_type = "tar.gz" %}
-{%set hash_type = "sha256" %}
-{%set hash_val = "2775829cb54b9e4c5b3bbd8028680f0c0ab695db154b9c46f0f074ff97540eb6" %}
-{%set build_num = "0" %}
+{% set name = "python-memcached" %}
+{% set version = "1.59" %}
+{% set bundle = "tar.gz" %}
+{% set hash_type = "sha256" %}
+{% set hash_val = "a2e28637be13ee0bf1a8b6843e7490f9456fd3f2a4cb60471733c7b5d5557e4f" %}
+{% set build = 0 %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.{{ compress_type }}
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ compress_type }}
+  fn: {{ name }}-{{ version }}.{{ bundle }}
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ bundle }}
   {{ hash_type }}: {{ hash_val }}
 
 build:
-  number: {{ build_num }}
+  number: {{ build }}
   script: python setup.py install --single-version-externally-managed --record=record.txt
+  noarch: python
 
 requirements:
   build:
@@ -33,7 +34,7 @@ test:
 
 about:
   home: http://www.tummy.com/Community/software/python-memcached/
-  license_file: PSF.LICENSE
+  license_file: {{ RECIPE_DIR }}/PSF.LICENSE
   license: PSF 2.0
   license_family: PSF
   summary: Pure python memcached client
