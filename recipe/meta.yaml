@@ -1,40 +1,38 @@
 {% set name = "python-memcached" %}
 {% set version = "1.62" %}
-{% set bundle = "tar.gz" %}
-{% set hash_val = "0285470599b7f593fbf3bec084daa1f483221e68c1db2cf1d846a9f7c2655103" %}
-{% set build = 0 %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.{{ bundle }}
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ bundle }}
-  sha256: {{ hash_val }}
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/python-memcached-{{ version }}.tar.gz
+  sha256: 0285470599b7f593fbf3bec084daa1f483221e68c1db2cf1d846a9f7c2655103
 
 build:
-  number: {{ build }}
-  script: python setup.py install --single-version-externally-managed --record=record.txt
   noarch: python
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 0
 
 requirements:
   host:
-    - python
-    - setuptools
-
+    - python >=3.7
+    - pip
   run:
-    - python
-    - six >=1.4.0
+    - python >=3.7
 
 test:
   imports:
     - memcache
+  commands:
+    - pip check
+  requires:
+    - pip
 
 about:
   home: http://www.tummy.com/Community/software/python-memcached/
-  license_file: {{ RECIPE_DIR }}/PSF.LICENSE
-  license: PSF 2.0
+  license_file: PSF.LICENSE
+  license: PSF-2.0
   license_family: PSF
   summary: Pure python memcached client
   dev_url: https://github.com/linsomniac/python-memcached
@@ -42,3 +40,4 @@ about:
 extra:
   recipe-maintainers:
     - pmlandwehr
+    - ocefpaf
