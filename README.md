@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/python-memcache
 
 Home: http://www.tummy.com/Community/software/python-memcached/
 
-Package license: PSF 2.0
+Package license: PSF-2.0
 
 Summary: Pure python memcached client
 
@@ -145,5 +145,6 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@ocefpaf](https://github.com/ocefpaf/)
 * [@pmlandwehr](https://github.com/pmlandwehr/)
 
